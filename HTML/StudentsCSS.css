@@ -56,9 +56,10 @@ main{
 }
 
 .btn {
+    float: left;
   border-radius: 5px;
   padding: 15px 25px;
-  font-size: 15px;
+  font-size: 12px;
   text-decoration: none;
   margin: 20px;
   color: #303235;
@@ -147,53 +148,35 @@ main{
 */
 
 
+/*SPM-box*/
+#spm{
+    position: relative;
+    height: 225px;
+    width: 260px;
+    margin-left: 250px;
+    border: 2px solid grey;
+    margin-top: 20px;
+}
+
+
 
 #innhold{
     height: 450px;
-    width: 100%;
-    border: 1px solid;
-    color: black;
+    width: 550px;
+    border: 1px solid ;
+    color: #303235;
     
    
 }
 
 /*Form*/
 
- #contact{
-    padding:10px 0 10px;
-  }
-
-  .contact-text{
-    margin:45px auto;
-  }
-
-  .mail-message-area{
-    width:100%;
-    padding:0 15px;
-  }
-
-  .mail-message{
-    width: 100%;
-    background:rgba(255,255,255, 0.8) !important;
-    -webkit-transition: all 0.7s;
-    -moz-transition: all 0.7s;
-    transition: all 0.7s;
-    margin:0 auto;
-    border-radius: 0;
-  }
-
-  .not-visible-message{
-    height:0px;
-    opacity: 0;
-  }
-
-  .visible-message{
-    height:auto;
-    opacity: 1;
-    margin:25px auto 0;
-  }
 
 /* Input Styles */
+.contact-form{
+    position: relative;
+    margin-top:20px;
+}
 
   .form{
     width: 100%;
@@ -221,7 +204,8 @@ main{
   .textarea{
     height: 200px;
     max-height:20px;
-    max-width: 50%;
+    max-width: 84%;
+    margin: 20px;
   
   }
   
@@ -252,22 +236,23 @@ main{
 /* Send Button Styles */
 
   .form-btn{
-    width:180px;
-    display: block;
-    height: auto;
-    padding:15px;
-    color:#fff;
-    background:#8BC3A3;
-    border:none;
-    border-radius:3px;
+      
+    width:100px;
+      height: 20px;
+    font-size: 12px;
+  text-decoration: none;
+    display: inline-block;
+    padding:15px 25px;
+    color:#303235;
+    background: #b7babf;
+    border-radius:5px;
     outline: none;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
-    margin:auto;
-    box-shadow: 0px 1px 4px rgba(0,0,0, 0.10);
-    -moz-box-shadow: 0px 1px 4px rgba(0,0,0, 0.10);
-    -webkit-box-shadow: 0px 1px 4px rgba(0,0,0, 0.10);
+
+    margin-top: -15px; 
+    margin-left: 20px;
+    line-height: 20%;
+
+   
   }
 
   .form-btn:hover{
