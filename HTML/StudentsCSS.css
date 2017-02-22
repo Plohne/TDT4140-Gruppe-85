@@ -18,6 +18,8 @@ body{
     font-family: 'Open Sans',sans-serif;
 }
 
+/*HEADER*/
+
 header{
     margin-top: 20px;
     height: 40px;
@@ -39,7 +41,7 @@ header p{
     
 }
 
-/*STUDENT: */
+/*STUDENT-innhold*/
  
 main{
     margin-left: 100px;
@@ -47,13 +49,21 @@ main{
     margin-top: 40px;
 }
 
+#innhold{
+    height: 450px;
+    width: 550px;
+    border: 1px solid ;
+    color: #303235;
+    
+   
+}
+
 
 #knapper{
     width: 160px;
-    
-    
-    
 }
+
+/*De 3 knappene*/
 
 .btn {
     float: left;
@@ -102,52 +112,6 @@ main{
   background-color: #FFDE29;;
 }
 
-
-.button1{
-    background-color: red;
-    border: none;
-    color: black;
-    padding: 15px 32px;
-    text-align: left;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    width: 100%;
-
-}
-.button2{
-    background-color: #f9e127;
-    border: none;
-    color: black;
-    padding: 15px 32px;
-    text-align: left;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    width: 100%;
-
-}
-/*
-.button3{
-    background-color: #4CAF50;
-    border: none;
-    color: black;
-    padding: 15px 32px;
-    text-align: left;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    width: 100%;
-
-}
-*/
-
-
 /*SPM-box*/
 #spm{
     position: relative;
@@ -158,16 +122,6 @@ main{
     margin-top: 20px;
 }
 
-
-
-#innhold{
-    height: 450px;
-    width: 550px;
-    border: 1px solid ;
-    color: #303235;
-    
-   
-}
 
 /*Form*/
 
@@ -209,31 +163,7 @@ main{
   
   }
   
-/* Generic Button Styles */
-
-  .button{
-    padding:8px 12px;
-    background:#0A5175;
-    display: block;
-    width:120px;
-    margin:10px 0 0px 0;
-    border-radius:3px;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
-    text-align:center;
-    font-size:0.8em;
-    box-shadow: 0px 1px 4px rgba(0,0,0, 0.10);
-    -moz-box-shadow: 0px 1px 4px rgba(0,0,0, 0.10);
-    -webkit-box-shadow: 0px 1px 4px rgba(0,0,0, 0.10);
-  }
-
-  .button:hover{
-    background:#8BC3A3;
-    color:white;
-  }
-
-/* Send Button Styles */
+/* Send Button */
 
   .form-btn{
       
