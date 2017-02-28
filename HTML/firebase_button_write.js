@@ -26,19 +26,14 @@ spmRef.on("child_added", function(snapshot, prevChildKey) {
 
 
 
-
 function askQuestion() {
     var aQ = firebase.database().ref("spm");
     var newQ = aQ.push();
     var spmStilt = document.getElementById("studentSpm").value;
-    newQ.set(spmStilt);
+    newQ.set({spmet:spmStilt});
     document.getElementById("studentSpm").value = "";
     
     var spmID2 = newQ.getKey();
     
 
-    
-    
-    
-   
 }
