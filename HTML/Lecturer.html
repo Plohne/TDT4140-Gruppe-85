@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
+    	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+		<style>#slider { margin: 10px; }	</style>
+    
         <link rel="stylesheet" href="StudentsCSS.css">
+
+          <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+  		  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
         <title>Lecturer</title>
     </head>
     <body>
@@ -23,6 +30,8 @@
         
         <div id = "innhold">
             
+             <div id="slider"></div>
+            
             <div id="knapper">
                 
                 <div id="knapp1">
@@ -39,7 +48,7 @@
             
             </div>
         
-            
+           
              
             <div id = "spmLectur">
             <p>Spørsmål</p>
@@ -49,9 +58,23 @@
             
             
             
+            
         </div>
+        
+            
+ 
+		
             
         </main>
+
+			<script>
+				$( "#slider" ).slider({
+ 			   	 orientation: "horizontal",
+ 		 	   	 max: 100,
+     	     	 min: 0,
+    	     	 value: 50
+ 				});
+			</script>
 
         <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
 	<script>
