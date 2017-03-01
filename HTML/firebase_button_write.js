@@ -1,17 +1,21 @@
 
 // Function that writes data to the Firebase
 function writeButtonData(input){	
-	database.ref().set({
+	database.ref().update({
         Button_input: input,
     });
+	
+	var buttonUpdate = firebase.database().ref("buttonCounter");
+	var newClick = snapshot.child("green").val();
+	var greenClick = parseInt(newClick);
+	greenClick += 1;
+	buttonUpdate.update(greenClick.toString());
+	
 }
-
 
 
 var q2 = document.getElementById("spm2");
 var q3 = document.getElementById("spm3");
-
-
 
 
 
@@ -23,7 +27,6 @@ spmRef.on("child_added", function(snapshot, prevChildKey) {
     q1.innerText += "\n" + "\n" +  newPost;
 
 });
-
 
 
 function askQuestion() {
