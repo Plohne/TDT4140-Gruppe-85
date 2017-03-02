@@ -2,13 +2,14 @@
 <html>
     <head>
     	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-		<style>#Not_following, #Doing_fine { margin: 15px; }	</style>
+		<style> #Not_following_slider, #Doing_fine_slider { margin: 15px; }	</style>
     
         <link rel="stylesheet" href="StudentsCSS.css">
 
           <script src="//code.jquery.com/jquery-1.12.4.js"></script>
   		  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  
+  		  
+  		  
         <title>Lecturer</title>
     </head>
     <body>
@@ -30,9 +31,9 @@
         
         <div id = "innhold">
             
-             <div id="Not_following"></div>
+             <div id="Not_following_slider"></div>
              
-             <div id="Doing_fine"></div>
+             <div id="Doing_fine_slider"></div>
     
             <div id = "spmLectur">
             <p>Spørsmål</p>
@@ -50,18 +51,16 @@
 		
             
         </main>
-
 			<script>
-			
-				$( "#Not_following, #Doing_fine").slider({
+				$( "#Not_following_slider, #Doing_fine_slider").slider({
  			   	 orientation: "horizontal",
  		 	   	 max: 100,
      	     	 min: 0,
-    	     	 value: 0
- 				});
-				$( "#Not_following" ).slider();
-				$( "#Doing_fine" ).slider();
+     	     	}, 'value',0);
+				$( "#Not_following_slider" ).slider();
+				$( "#Doing_fine_slider" ).slider();
 			</script>
+			
 
         <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
 	<script>
