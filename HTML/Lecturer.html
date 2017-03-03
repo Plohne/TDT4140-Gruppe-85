@@ -20,18 +20,18 @@
               <img src="logoPNG2.png" alt="logo" style="width:2em; height:auto;">
                
         <p>Lecturer</p>
-
-                       
-
-           
-           
+   
         </header>
+        
         
         <main>
         
         <div id = "innhold">
             
              <div id="Not_following_slider"></div>
+             <p> 
+           	  <input type="text" id="amount">
+             </p>
              
              <div id="Doing_fine_slider"></div>
     
@@ -40,52 +40,34 @@
             <p id="UNIQUEID"></p>
             
             </div>
-            
-            
-            
-            
+          
         </div>
-        
-            
- 
-		
             
         </main>
-			<script>
-				$( "#Not_following_slider, #Doing_fine_slider").slider({
- 			   	 orientation: "horizontal",
- 		 	   	 max: 100,
-     	     	 min: 0,
-     	     	}, 'value',0);
-				$( "#Not_following_slider" ).slider();
-				$( "#Doing_fine_slider" ).slider();
-			</script>
+			<script	src = "slider.js"></script>
 			
 
         <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
-	<script>
-		// Initialize Firebase
-		var config = {
-			apiKey : "AIzaSyCvM65myys0uRGxK74PyfUIr4HN1kwbmI4",
-			authDomain : "pu-test-6bfac.firebaseapp.com",
-			databaseURL : "https://pu-test-6bfac.firebaseio.com",
-			storageBucket : "pu-test-6bfac.appspot.com",
-			messagingSenderId : "275050676935"
-		};
-		firebase.initializeApp(config);
-		
-		// Get a reference to the database service
-		 var database = firebase.database();
-		
-	</script>
-	<script src="firebase_button_write.js"></script>
-        
-        
-<script src ="firebase_lecture.js">
+		<script>
+			// Initialize Firebase
+			var config = {
+				apiKey : "AIzaSyCvM65myys0uRGxK74PyfUIr4HN1kwbmI4",
+				authDomain : "pu-test-6bfac.firebaseapp.com",
+				databaseURL : "https://pu-test-6bfac.firebaseio.com",
+				storageBucket : "pu-test-6bfac.appspot.com",
+				messagingSenderId : "275050676935"
+			};
+			firebase.initializeApp(config);
 
-        </script>
+			// Get a reference to the database service
+			var database = firebase.database();
+		</script>
+		<script src="firebase_button_write.js"></script>
 
-    </body>
+
+		<script src="firebase_lecture.js"></script>
+
+</body>
 
 
 </html>

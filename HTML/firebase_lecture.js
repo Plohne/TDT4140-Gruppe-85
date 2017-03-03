@@ -1,17 +1,10 @@
 window.onload = function(){
     
-
-
 //Endrer farge på knapp til grå
 var gulKnapp = document.getElementById("knappy");
 var rodKnapp = document.getElementById("knappr");
 var gronnKnapp = document.getElementById("knappg");
 
-var NotFollowingSlider = document.getElementById("Not_following_slider");
-var doingFineSlider = document.getElementById("Doing_fine_slider");
-
-//NotFollowingSlider.slider('value', 50);
-    
 gulKnapp.style.background='#AAAAAA';
 rodKnapp.style.background='#AAAAAA';
 gronnKnapp.style.background='#AAAAAA';
