@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <!-- Added jquery so we can load inn other html elements -->
+	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+
+          <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
         <link rel="stylesheet" href="StudentsCSS.css">
+        <link rel="stylesheet" href="chatBubble.css">
+        <link rel="stylesheet" href="css/normalize.css">
+                <link rel="stylesheet" href="css/style.css">
+
+
         <title>Lecturer</title>
     </head>
     <body>
@@ -12,9 +21,6 @@
               <img src="logoPNG2.png" alt="logo" style="width:2em; height:auto;">
                
         <p>Lecturer</p>
-
-                       
-
            
            
         </header>
@@ -38,14 +44,42 @@
             </div>
             
             </div>
-        
-            
+            <!--
+            <div id="spmBOX"> 
              
-            <div id = "spmLectur">
-            <p>Spørsmål</p>
-            <p id="UNIQUEID"></p>
+                
+                
+                <p id="UNIQUEID"></p>
+               
+
+                
+                
             
-            </div>
+</div>  
+-->
+               <div id="spmBOX">
+                   <div>
+    <div class="chat-box-lecturer">
+  
+  <div id='chat' class="chat">
+
+    <div class="chat-container active" id='cont1'>
+
+
+
+        
+      </div>   
+  </div>
+
+  
+
+</div>
+    
+
+
+</div>
+                
+                </div>
             
             
             
@@ -69,12 +103,16 @@
 		 var database = firebase.database();
 		
 	</script>
-	<script src="firebase_button_write.js"></script>
         
         
 <script src ="firebase_lecture.js">
 
         </script>
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+
+        <script src="js/index.js"></script>
+        
+        	<script src="firebase_button_write.js"></script>
 
     </body>
 
