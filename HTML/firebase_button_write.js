@@ -3,9 +3,9 @@
 function writeButtonData(input){	
 
 	// Writes the color of pushed button to 'Button_input'.
-	database.ref().update({
-
+	database.ref().update({Button_input: input
     });
+	
 	// Updates number of button clicks to the relevant button counter.
 	var newClick;
 	var buttonRef = database.ref().child('buttonCounter').child(input);
