@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html>
     <head>
-    	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-		<style> #Not_following_slider, #Doing_fine_slider, #Too_easy_slider { margin: 15px; }	</style>
-    
-        <link rel="stylesheet" href="StudentsCSS.css">
 
-          <script src="//code.jquery.com/jquery-1.12.4.js"></script>
-  		  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  		  
-  		  
+        <!-- Added jquery so we can load inn other html elements -->
+
+            	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+		<style> #Not_following_slider, #Doing_fine_slider, #Too_easy_slider { margin: 15px; }	</style>
+        	<script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+         <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+        <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+        <link rel="stylesheet" href="StudentsCSS.css">
+        <link rel="stylesheet" href="chatBubble.css">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/style.css">
+        
+
+
         <title>Lecturer</title>
     </head>
     <body>
@@ -18,7 +25,7 @@
            <img src="logoPNG2.png" alt="logo" style="width:2em; height:auto;">
                
         <p>Lecturer</p>
-   
+
         </header>
          
         <main>
@@ -39,12 +46,36 @@
   				<label for="Too_easy_value" style="color:white; font-weight:bold;">Too easy:</label>
   			</p>
              <div id="Too_easy_slider"></div>    
+  
+
+               <div id="spmBOX">
+                   <div>
+   					 <div class="chat-box-lecturer">
+  
+ 					 <div id='chat' class="chat">
+
+   					 <div class="chat-container active" id='cont1'>
+
+
+
+        
+     				 </div>   
+  					</div>
+
+  
+
+					</div>
     
-            <div id = "spmLectur">
-            <p>Spørsmål</p>
-            <p id="UNIQUEID"></p>
-            </div>
-          
+
+
+					</div>
+                
+                </div>
+            
+            
+            
+            
+
         </div>
             
         </main>
@@ -67,9 +98,14 @@
 		
 		<script	src = "slider.js"></script>
 		
-		<script src="firebase_button_write.js"></script>
 
 		<script src="firebase_lecture.js"></script>
+
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+
+        <script src="js/index.js"></script>
+        
+        	<script src="firebase_button_write.js"></script>
 
 </body>
 </html>
