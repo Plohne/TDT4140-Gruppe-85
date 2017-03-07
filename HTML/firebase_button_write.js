@@ -2,14 +2,18 @@
 // Function that writes data to the Firebase
 function writeButtonData(input){	
 	database.ref().update({
-        Button_input: input,
+        Button_input: input
     });
-	
-	var buttonUpdate = firebase.database().ref("buttonCounter");
-	var newClick = snapshot.child("green").val();
-	var greenClick = parseInt(newClick);
-	greenClick += 1;
-	buttonUpdate.update(greenClick.toString());
+	var newClick;
+	var buttonRef = database.ref().child('buttonCounter').child(input);
+	buttonRef.on('value', function(snapshot) {
+		  newClick = snapshot.val();
+		  
+	});
+	newClick += 1;
+
+	buttonRef.set(newClick);
+
 	
 }
 
