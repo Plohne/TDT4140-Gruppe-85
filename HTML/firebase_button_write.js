@@ -1,17 +1,17 @@
 
-// Function that writes data to the Firebase
+// Function that writes data to the Firebase database.
 function writeButtonData(input){	
+	// Writes the color of pushed button to 'Button_input'.
 	database.ref().update({
         Button_input: input
     });
+	// Updates number of button clicks to the relevant button counter.
 	var newClick;
 	var buttonRef = database.ref().child('buttonCounter').child(input);
 	buttonRef.on('value', function(snapshot) {
-		  newClick = snapshot.val();
-		  
+		  newClick = snapshot.val();	  
 	});
 	newClick += 1;
-
 	buttonRef.set(newClick);
 
 	
@@ -20,8 +20,6 @@ function writeButtonData(input){
 
 var q2 = document.getElementById("spm2");
 var q3 = document.getElementById("spm3");
-
-
 
 var spmRef = firebase.database().ref("spm");
 
