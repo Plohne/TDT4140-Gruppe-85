@@ -6,7 +6,6 @@ $( "#Not_following_slider, #Doing_fine_slider, #Too_easy_slider").slider({
 
 //$( "#Not_following_value" ).val('5');
 
-
 database.ref().on("value", function(snapshot){
     console.log(snapshot.val());
     $( "#Not_following_slider" ).slider('value',snapshot.val().buttonCounter.red);
