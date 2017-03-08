@@ -1,15 +1,27 @@
 
-// Function that writes data to the Firebase
+// Function that writes data to the Firebase database.
 function writeButtonData(input){	
-	database.ref().update({
-        Button_input: input,
-    });
-}
 
+	// Writes the color of pushed button to 'Button_input'.
+	database.ref().update({Button_input: input
+    });
+	
+	// Updates number of button clicks to the relevant button counter.
+	var newClick;
+	var buttonRef = database.ref().child('buttonCounter').child(input);
+	buttonRef.on('value', function(snapshot) {
+		  newClick = snapshot.val();	  
+	});
+	newClick += 1;
+	buttonRef.set(newClick);
+
+	
+}
 
 
 var q2 = document.getElementById("spm2");
 var q3 = document.getElementById("spm3");
+
 
 var MESSAGE_TEMPLATE =
     '<div class ="bubble">' + 
@@ -90,6 +102,7 @@ spmRef.limitToLast(1).on("child_added", function(snapshot){
 })
 */
 
+
 /*
 spmRef.on("child_added", function(snapshot, prevChildKey) {
   var newPost = snapshot.val();
@@ -100,7 +113,6 @@ spmRef.on("child_added", function(snapshot, prevChildKey) {
 
 });
 */
-
 
 
 
