@@ -213,15 +213,31 @@ input {
 
 /* Slider */
 
+#Not_following_slider .ui-slider-range { background: #e74c3c; }
+#Doing_fine_slider .ui-slider-range { background: #f1c40f; }
+#Too_easy_slider .ui-slider-range { background: #2ecc71; }
 
 .ui-slider-horizontal {
-    width: 200px;  
-    
+    width: 200px;    
 }
 
 .ui-widget-content {
 	background: #c0c0c0;
 }
+
+
 .ui-slider .ui-slider-handle {
 	background: grey;
+	opacity: 0;
 }
+
+.value_display {
+	background: #303235;
+	color: white;
+	border: none;
+	font-weight:bold;
+}
+
+
+
+
