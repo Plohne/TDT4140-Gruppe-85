@@ -14,8 +14,6 @@ function writeButtonData(input){
 	});
 	newClick += 1;
 	buttonRef.set(newClick);
-
-	
 }
 
 
@@ -58,8 +56,6 @@ function displayMessage(spmet){
     
     chat.scrollTop = chat.scrollHeight;
     console.log(bubble);
-    
-    
 }
 
 
@@ -124,7 +120,5 @@ function askQuestion() {
     document.getElementById("chat-input").value = "";
     
     var spmID2 = newQ.getKey();
-    
-
-}
+ }
 loadMessage();
