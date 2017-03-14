@@ -17,8 +17,7 @@ function writeButtonData(input){
 }
 
 
-var q2 = document.getElementById("spm2");
-var q3 = document.getElementById("spm3");
+
 
 
 var MESSAGE_TEMPLATE =
@@ -32,20 +31,41 @@ function loadMessage(){
     spmRef.off();
     var setMessage = function(data){
         var val = data.val();
-        displayMessage(val.spmet);
+        var key = data.getKey();
+        displayMessage(val.spmet, key);
     }
     console.log("legger til listener");
     spmRef.on('child_added', setMessage);
+    
 }
-function displayMessage(spmet){
+function displayMessage(spmet, key){
     console.log("Viser spørsmålet");
     var chat = document.getElementById("cont1");
     var bubble = document.createElement("div");
+    
+   
+    bubble.id = key;
+   
+    
     bubble.className = "bubble";
     var tekst = document.createElement("p");
     tekst.className = "tekst";
     tekst.textContent = spmet;
     bubble.appendChild(tekst);
+
+    
+    bubble.onclick = removeQ;
+    
+    
+    var removeRef = firebase.database().ref("spm");
+    removeRef.on('child_removed', function(e){
+         document.getElementById(e.target.id).remove();
+    } );
+
+      
+        
+   
+    
     
     //bytter enter som gir linjeskift til <br>
     tekst.innerHTML = tekst.innerHTML.replace(/\n/g, '<br>');
@@ -119,6 +139,8 @@ function askQuestion() {
     newQ.set({spmet:spmStilt});
     document.getElementById("chat-input").value = "";
     
-    var spmID2 = newQ.getKey();
+ 
  }
+
+
 loadMessage();
