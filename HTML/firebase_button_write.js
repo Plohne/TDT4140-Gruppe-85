@@ -1,3 +1,34 @@
+window.onload = function(){
+	
+	var redRef = database.ref().child('buttonCounter').child('red');
+	redRef.set(0);
+	var yellowRef = database.ref().child('buttonCounter').child('yellow');
+	yellowRef.set(0);
+	var greenRef = database.ref().child('buttonCounter').child('green');
+	greenRef.set(0);
+	
+}
+
+var redButton = document.getElementById("red");
+var yellowButton = document.getElementById("yellow");
+var greenButton = document.getElementById("green");
+
+redButton.onclick = function() {
+	writeButtonData('red');
+	disableButton('red');
+}
+
+yellowButton.onclick = function() {
+	writeButtonData('yellow');
+	disableButton('yellow');
+}
+
+greenButton.onclick = function() {
+	writeButtonData('green');
+	disableButton('green');
+}
+
+var newClick;
 
 // Function that writes data to the Firebase database.
 function writeButtonData(input){	
@@ -7,14 +38,65 @@ function writeButtonData(input){
     });
 	
 	// Updates number of button clicks to the relevant button counter.
-	var newClick;
+	newClick = 0;
 	var buttonRef = database.ref().child('buttonCounter').child(input);
 	buttonRef.on('value', function(snapshot) {
 		  newClick = snapshot.val();	  
 	});
+	
 	newClick += 1;
 	buttonRef.set(newClick);
+	
 }
+
+function removeButtonData(input){	
+
+	// Writes the color of pushed button to 'Button_input'.
+	database.ref().update({Button_input: input
+    });
+	
+	// Updates number of button clicks to the relevant button counter.
+	newClick = 0;
+	var buttonRef = database.ref().child('buttonCounter').child(input);
+	buttonRef.on('value', function(snapshot) {
+		  newClick = snapshot.val();	  
+	});
+	if(newClick > 0){
+		newClick -= 1;
+		buttonRef.set(newClick);
+	}
+}
+
+
+function disableButton(buttonId) {
+	
+	if(redButton.disabled) {
+		removeButtonData('red');
+		redButton.disabled = false;
+	}
+	
+	if(yellowButton.disabled) {
+		removeButtonData('yellow');
+		yellowButton.disabled = false;
+	}
+	
+	if(greenButton.disabled) {
+		removeButtonData('green');
+		greenButton.disabled = false;
+	}
+	
+	var pressedButton = document.getElementById(buttonId);
+	pressedButton.disabled = true;
+
+}
+/*
+function buttonClicked(buttonInput){
+	var savebuttonInput = buttonInput
+	writeButtonData(savebuttonInput);
+	disableButton(savebuttonInput);
+}
+*/
+
 
 
 
