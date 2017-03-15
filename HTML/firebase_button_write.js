@@ -9,26 +9,36 @@
 	
 }*/
 
-var redButton = document.getElementById("red");
-var yellowButton = document.getElementById("yellow");
-var greenButton = document.getElementById("green");
+var red_button = document.getElementById("red");
+var yellow_button = document.getElementById("yellow");
+var green_button = document.getElementById("green");
 
-redButton.onclick = function() {
-	writeButtonData('red');
-	disableButton('red');
-}
+$(document).ready(function() {
 
-yellowButton.onclick = function() {
-	writeButtonData('yellow');
-	disableButton('yellow');
-}
+	red_button.onclick = function() {
+		console.log("clicked: %o", this);
+		$.when(writeButtonData('red')).then(disableButton('red'));
+		
+	}
 
-greenButton.onclick = function() {
-	writeButtonData('green');
-	disableButton('green');
-}
+	yellow_button.onclick = function() {
+		console.log("clicked: %o", this);
+		$.when(writeButtonData('yellow')).then(disableButton('yellow'));
+	/*	writeButtonData('yellow');
+		disableButton('yellow');*/
+	}
+
+	green_button.onclick = function() {
+		console.log("clicked: %o", this);
+		$.when(writeButtonData('green')).then(disableButton('green'));
+	/*	writeButtonData('green');
+		disableButton('green');*/
+	}
+
+});
 
 var newClick;
+var un_click;
 
 // Function that writes data to the Firebase database.
 function writeButtonData(input){	
@@ -39,12 +49,17 @@ function writeButtonData(input){
 	
 	// Updates number of button clicks to the relevant button counter.
 	newClick = 0;
+	console.log("newClick: %d", newClick);
 	var buttonRef = database.ref().child('buttonCounter').child(input);
 	buttonRef.on('value', function(snapshot) {
-		  newClick = snapshot.val();	  
+		  newClick = snapshot.val();
+		  console.log("newClick: %d", newClick);
+		  
+		  
 	});
 	
 	newClick += 1;
+	console.log("newClick: %d", newClick);
 	buttonRef.set(newClick);
 	
 }
@@ -56,37 +71,37 @@ function removeButtonData(input){
     });
 	
 	// Updates number of button clicks to the relevant button counter.
-	newClick = 0;
+	un_click = 0;
 	var buttonRef = database.ref().child('buttonCounter').child(input);
 	buttonRef.on('value', function(snapshot) {
-		  newClick = snapshot.val();	  
+		un_click = snapshot.val();	  
 	});
-	if(newClick > 0){
-		newClick -= 1;
-		buttonRef.set(newClick);
-	}
+//	if(un_click > 0){
+		un_click -= 1;
+		buttonRef.set(un_click);
+//	}
 }
 
 
 function disableButton(buttonId) {
 	
-	if(redButton.disabled) {
+	if(red_button.disabled) {
 		removeButtonData('red');
-		redButton.disabled = false;
+		red_button.disabled = false;
 	}
 	
-	if(yellowButton.disabled) {
+	if(yellow_button.disabled) {
 		removeButtonData('yellow');
-		yellowButton.disabled = false;
+		yellow_button.disabled = false;
 	}
 	
-	if(greenButton.disabled) {
+	if(green_button.disabled) {
 		removeButtonData('green');
-		greenButton.disabled = false;
+		green_button.disabled = false;
 	}
 	
-	var pressedButton = document.getElementById(buttonId);
-	pressedButton.disabled = true;
+	var pressed_button = document.getElementById(buttonId);
+	pressed_button.disabled = true;
 
 }
 /*
