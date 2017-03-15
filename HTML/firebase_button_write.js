@@ -1,4 +1,4 @@
-window.onload = function(){
+/*window.onload = function(){
 	
 	var redRef = database.ref().child('buttonCounter').child('red');
 	redRef.set(0);
@@ -7,7 +7,7 @@ window.onload = function(){
 	var greenRef = database.ref().child('buttonCounter').child('green');
 	greenRef.set(0);
 	
-}
+}*/
 
 var redButton = document.getElementById("red");
 var yellowButton = document.getElementById("yellow");
