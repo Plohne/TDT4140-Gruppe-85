@@ -15,43 +15,43 @@
         <link rel="stylesheet" href="chatBubble.css">
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/style.css">
-        
+
 
 
         <title>Lecturer</title>
     </head>
     <body>
-    
+
        <header>
 			<img src="logoPNG2.png" alt="logo" style="width:2em; height:auto;">
-               
+
         	<p>Lecturer</p>
 
         </header>
-         
+
         <main>
 
 			<div id = "innhold">
-		
+
 				<p>
 					<label for="Not_following_value" style="color: white; font-weight: bold;">Not following:</label>
 					<input type="text" class="value_display" id="Not_following_amount" readonly>
 				</p>
 				<div id="Not_following_slider"></div>
-		
+
 				<p>
 					<label for="Doing_fine_value" style="color: white; font-weight: bold;">Doing fine:</label>
 					 <input type="text" class="value_display" id="Doing_fine_amount" readonly>
 				</p>
 				<div id="Doing_fine_slider"></div>
-		
+
 				<p>
 					<label for="Too_easy_value" style="color: white; font-weight: bold;">Too easy:</label>
 					<input type="text" class="value_display" id="Too_easy_amount" readonly>
 				</p>
 				<div id="Too_easy_slider"></div>
-		
-		
+
+
   				<div id="spmBOX">
 					<div>
 						<div class="chat-box-lecturer">
@@ -61,35 +61,22 @@
 						</div>
 					</div>
 				</div>
-				
-			</div>
-            
-        </main>
-			
-		<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
-		<script>
-			// Initialize Firebase
-			var config = {
-				apiKey : "AIzaSyCvM65myys0uRGxK74PyfUIr4HN1kwbmI4",
-				authDomain : "pu-test-6bfac.firebaseapp.com",
-				databaseURL : "https://pu-test-6bfac.firebaseio.com",
-				storageBucket : "pu-test-6bfac.appspot.com",
-				messagingSenderId : "275050676935"
-			};
-			firebase.initializeApp(config);
 
-			// Get a reference to the database service
-			var database = firebase.database();
-		</script>
-		
+			</div>
+
+        </main>
+
+		<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
+
+
 		<script	src = "slider.js"></script>
-	
+
  <!-- 		<script src="firebase_lecture.js"></script>
- 
+
         <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
  -->
         <script src="js/index.js"></script>
-        
+        <script src ="fb_config.js"></script>
         <script src="firebase_button_write.js"></script>
         <script src= "removeQLecturer.js"> </script>
 	</body>
