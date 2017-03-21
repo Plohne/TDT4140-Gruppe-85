@@ -34,8 +34,15 @@ function loadMessage(){
         var key = data.getKey();
         displayMessage(val.spmet, key);
     }
+    var removeQuestion = function(data){
+        var key = data.getKey();
+        var element = document.getElementById(key);
+        element.parentNode.removeChild(element);
+    }
+    
     console.log("legger til listener");
     spmRef.on('child_added', setMessage);
+    spmRef.on('child_removed',removeQuestion);
     
 }
 function displayMessage(spmet, key){
@@ -56,13 +63,14 @@ function displayMessage(spmet, key){
     
     bubble.onclick = removeQ;
     
-    
+    /*
     var removeRef = firebase.database().ref("spm");
     removeRef.on('child_removed', function(e){
+        console.log("Funksjon kjører")
          document.getElementById(e.target.id).remove();
     } );
 
-      
+    */  
         
    
     
@@ -77,6 +85,7 @@ function displayMessage(spmet, key){
     chat.scrollTop = chat.scrollHeight;
     console.log(bubble);
 }
+
 
 
 
