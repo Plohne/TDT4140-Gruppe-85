@@ -1,46 +1,29 @@
-/*window.onload = function(){
-	
-	var redRef = database.ref().child('buttonCounter').child('red');
-	redRef.set(0);
-	var yellowRef = database.ref().child('buttonCounter').child('yellow');
-	yellowRef.set(0);
-	var greenRef = database.ref().child('buttonCounter').child('green');
-	greenRef.set(0);
-	
-}*/
 
 var red_button = document.getElementById("red");
 var yellow_button = document.getElementById("yellow");
 var green_button = document.getElementById("green");
+var newClick;
+var un_click;
 
 $(document).ready(function() {
 
 	red_button.onclick = function() {
 		console.log("clicked: %o", this);
 		$.when(writeButtonData('red')).then(disableButton('red'));
-		
 	}
-
 	yellow_button.onclick = function() {
 		console.log("clicked: %o", this);
 		$.when(writeButtonData('yellow')).then(disableButton('yellow'));
-	/*	writeButtonData('yellow');
-		disableButton('yellow');*/
 	}
-
 	green_button.onclick = function() {
 		console.log("clicked: %o", this);
 		$.when(writeButtonData('green')).then(disableButton('green'));
-	/*	writeButtonData('green');
-		disableButton('green');*/
 	}
-
 });
 
- var newClick;
-var un_click;
 
-// Function that writes data to the Firebase database.
+
+// Function that registers the button pressed in the Firebase database.
 function writeButtonData(input){	
 
 	// Writes the color of pushed button to 'Button_input'.
@@ -55,13 +38,14 @@ function writeButtonData(input){
 		  newClick = snapshot.val();
 		  console.log("newClick 2: %d", newClick);
 		  	  
-	}).then(function(){
+	}).then(function(){ // needed to ensure that the value is aquired from firebase before moving on.
 		newClick += 1;
 		console.log("newClick 3: %d", newClick);
 		buttonRef.set(newClick);
 	});
 }
 
+// Removes registration for a button in the Firebase database if a new button is pressed.
 function removeButtonData(input){	
 
 	// Writes the color of pushed button to 'Button_input'.
@@ -72,8 +56,9 @@ function removeButtonData(input){
 //	un_click = 0;
 	var buttonRef = database.ref().child('buttonCounter').child(input);
 	buttonRef.once('value', function(snapshot) {
-		un_click = snapshot.val();	  
-	}).then(function(){
+		un_click = snapshot.val();	 
+		
+	}).then(function(){// needed to ensure that the value is aquired from firebase before moving on.
 		if(un_click > 0){
 			un_click -= 1;
 			buttonRef.set(un_click);
@@ -81,7 +66,7 @@ function removeButtonData(input){
 	});
 }
 
-
+// Function to disable the pressed button and re-enable previous pressed button again if another button is pressed.
 function disableButton(buttonId) {
 	
 	if(red_button.disabled) {
@@ -101,20 +86,10 @@ function disableButton(buttonId) {
 	
 	var pressed_button = document.getElementById(buttonId);
 	pressed_button.disabled = true;
-
 }
-/*
-function buttonClicked(buttonInput){
-	var savebuttonInput = buttonInput
-	writeButtonData(savebuttonInput);
-	disableButton(savebuttonInput);
-}
-*/
 
 
-
-
-
+// Question submit part
 
 var MESSAGE_TEMPLATE =
     '<div class ="bubble">' + 
@@ -157,12 +132,7 @@ function displayMessage(spmet, key){
     removeRef.on('child_removed', function(e){
          document.getElementById(e.target.id).remove();
     } );
-
-      
-        
-   
-    
-    
+ 
     //bytter enter som gir linjeskift til <br>
     tekst.innerHTML = tekst.innerHTML.replace(/\n/g, '<br>');
     chat.appendChild(bubble);
