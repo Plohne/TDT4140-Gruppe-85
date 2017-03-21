@@ -17,4 +17,4 @@ Makefile.in
 /bin/
 /.project
 /.DS_Store
-fb_config.js
+/fb_config.js
