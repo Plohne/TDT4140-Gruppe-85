@@ -37,7 +37,7 @@ $(document).ready(function() {
 
 });
 
-var newClick;
+ var newClick;
 var un_click;
 
 // Function that writes data to the Firebase database.
@@ -49,19 +49,17 @@ function writeButtonData(input){
 	
 	// Updates number of button clicks to the relevant button counter.
 	newClick = 0;
-	console.log("newClick: %d", newClick);
+	console.log("newClick 1: %d", newClick);
 	var buttonRef = database.ref().child('buttonCounter').child(input);
-	buttonRef.on('value', function(snapshot) {
+	buttonRef.once('value', function(snapshot) {
 		  newClick = snapshot.val();
-		  console.log("newClick: %d", newClick);
-		  
-		  
+		  console.log("newClick 2: %d", newClick);
+		  	  
+	}).then(function(){
+		newClick += 1;
+		console.log("newClick 3: %d", newClick);
+		buttonRef.set(newClick);
 	});
-	
-	newClick += 1;
-	console.log("newClick: %d", newClick);
-	buttonRef.set(newClick);
-	
 }
 
 function removeButtonData(input){	
@@ -71,15 +69,16 @@ function removeButtonData(input){
     });
 	
 	// Updates number of button clicks to the relevant button counter.
-	un_click = 0;
+//	un_click = 0;
 	var buttonRef = database.ref().child('buttonCounter').child(input);
-	buttonRef.on('value', function(snapshot) {
+	buttonRef.once('value', function(snapshot) {
 		un_click = snapshot.val();	  
+	}).then(function(){
+		if(un_click > 0){
+			un_click -= 1;
+			buttonRef.set(un_click);
+		}
 	});
-//	if(un_click > 0){
-		un_click -= 1;
-		buttonRef.set(un_click);
-//	}
 }
 
 
