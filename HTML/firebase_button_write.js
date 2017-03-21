@@ -5,6 +5,7 @@ var green_button = document.getElementById("green");
 var newClick;
 var un_click;
 
+// Listeners to register if buttons are clicked in 'Students.html'.
 $(document).ready(function() {
 
 	red_button.onclick = function() {
