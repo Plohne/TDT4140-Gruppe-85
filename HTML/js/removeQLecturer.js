@@ -1,3 +1,8 @@
+/**
+ * Remove question submitted from Students.html.
+ * 
+ */
+
 function removeQ(e) {
     
     document.getElementById(e.target.id).remove();

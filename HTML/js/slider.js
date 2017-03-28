@@ -1,3 +1,6 @@
+/**
+ * Enables and sets value of the sliders in Lecturer.html.
+ */
 
 // Setting up three sliders ranging from 0 to 100. 
 $( "#Not_following_slider, #Doing_fine_slider, #Too_easy_slider").slider({
@@ -8,7 +11,6 @@ $( "#Not_following_slider, #Doing_fine_slider, #Too_easy_slider").slider({
 	slide: function (event, ui) { return false; }
 	});
 
-//$( "#Not_following_value" ).val('5');
 
 // Reading values from firebase database and setting it as slider value.
 database.ref().on("value", function(snapshot){

@@ -1,4 +1,6 @@
-
+/**
+ * Checks entered pin against correct pin in firebase.
+ */
 var pinSubmit = document.getElementById("pinSubmit");
 
 $(document).ready(function() {
@@ -22,5 +24,7 @@ function pinEntry(){
     else{
         window.alert("Wrong pin");
     }
+}, function(error) {
+	  console.error(error);
 });
 }
