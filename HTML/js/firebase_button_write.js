@@ -1,22 +1,22 @@
 
-var red_button = document.getElementById("red");
-var yellow_button = document.getElementById("yellow");
-var green_button = document.getElementById("green");
+var redButton = document.getElementById("red");
+var yellowButton = document.getElementById("yellow");
+var greenButton = document.getElementById("green");
 var newClick;
-var un_click;
+var unClick;
 
 // Listeners to register if buttons are clicked in 'Students.html'.
 $(document).ready(function() {
 
-	red_button.onclick = function() {
+	redButton.onclick = function() {
 		console.log("clicked: %o", this);
 		$.when(writeButtonData('red')).then(disableButton('red'));
 	}
-	yellow_button.onclick = function() {
+	yellowButton.onclick = function() {
 		console.log("clicked: %o", this);
 		$.when(writeButtonData('yellow')).then(disableButton('yellow'));
 	}
-	green_button.onclick = function() {
+	greenButton.onclick = function() {
 		console.log("clicked: %o", this);
 		$.when(writeButtonData('green')).then(disableButton('green'));
 	}
@@ -57,11 +57,11 @@ function removeButtonData(input){
 //	un_click = 0;
 	var buttonRef = database.ref().child('buttonCounter').child(input);
 	buttonRef.once('value', function(snapshot) {
-		un_click = snapshot.val();	 
+		unClick = snapshot.val();	 
 		
 	}).then(function(){// needed to ensure that the value is aquired from firebase before moving on.
-		if(un_click > 0){
-			un_click -= 1;
+		if(unClick > 0){
+			unClick -= 1;
 			buttonRef.set(un_click);
 		}
 	});
@@ -70,23 +70,23 @@ function removeButtonData(input){
 // Function to disable the pressed button and re-enable previous pressed button again if another button is pressed.
 function disableButton(buttonId) {
 	
-	if(red_button.disabled) {
+	if(redButton.disabled) {
 		removeButtonData('red');
-		red_button.disabled = false;
+		redButton.disabled = false;
 	}
 	
-	if(yellow_button.disabled) {
+	if(yellowButton.disabled) {
 		removeButtonData('yellow');
-		yellow_button.disabled = false;
+		yellowButton.disabled = false;
 	}
 	
-	if(green_button.disabled) {
+	if(greenButton.disabled) {
 		removeButtonData('green');
-		green_button.disabled = false;
+		greenButton.disabled = false;
 	}
 	
-	var pressed_button = document.getElementById(buttonId);
-	pressed_button.disabled = true;
+	var pressedButton = document.getElementById(buttonId);
+	pressedButton.disabled = true;
 }
 
 
