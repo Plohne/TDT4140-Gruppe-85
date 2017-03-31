@@ -68,7 +68,7 @@ function removeButtonData(input){
 	}).then(function(){// needed to ensure that the value is aquired from firebase before moving on.
 		if(unClick > 0){
 			unClick -= 1;
-			buttonRef.set(un_click);
+			buttonRef.set(unClick);
 		}
 	});
 }
