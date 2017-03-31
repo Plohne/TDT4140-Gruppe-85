@@ -10,28 +10,36 @@
 </head>
 <body>
 
+
 	<div id="qunit"></div>
 	<div id="qunit-fixture"></div>
-	
-	<div id="knapper">
+	<div style="display: none">
+		<div id="knapper">
 
-		<div id="knapp1">
-			<button id="red" class="btn red">Not following!</button>
+			<div id="knapp1">
+				<button id="red" class="btn red">Not following!</button>
+			</div>
+
+			<div id="knapp2">
+				<button id="yellow" class="btn yellow">Doing fine!</button>
+			</div>
+
+			<div id="knappss">
+				<button id="green" class="btn green">Too easy!</button>
+			</div>
 		</div>
 
-		<div id="knapp2">
-			<button id="yellow" class="btn yellow">Doing fine!</button>
-		</div>
+		<p>
+		<h2 id="pinDisplay">Pin:</h2>
+		</p>
 
-		<div id="knappss">
-			<button id="green" class="btn green">Too easy!</button>
-		</div>
 	</div>
-
 	<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
 	<script src="../fb_config.js"></script>
 	<script src="https://code.jquery.com/qunit/qunit-2.2.1.js"></script>
 	<script src="../js/firebase_button_write.js"></script>
+	<script src="../js/pinGenerator.js"></script>
+	<script src="../js/slider.js"></script>
 	<script src="buttonTest.js"></script>
 
 </body>
