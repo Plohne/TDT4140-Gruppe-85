@@ -42,7 +42,13 @@ function writeButtonData(input){
 	}).then(function(){ // needed to ensure that the value is aquired from firebase before moving on.
 		newClick += 1;
 		console.log("newClick 3: %d", newClick);
-		buttonRef.set(newClick);
+		buttonRef.set(newClick, function(error){
+			if(error){
+				return false;
+			} else {
+				return true;
+			} 
+		});
 	});
 }
 

@@ -33,6 +33,5 @@ database.ref().on("value", function(snapshot){
 function calcAverage(count, sum){
 	
 	return (count / sum)*100;
-	
-	
+
 }

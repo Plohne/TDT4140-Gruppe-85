@@ -24,7 +24,7 @@ function logQBeforeAdd(alleSpm){
 function logQAfterAdd(alleSpm){
     console.log("Questions in database after we add a new question 'Testspm' ");
     console.log(alleSpm);
-//    testAddQ();
+    testAddQ();
         
 }
 
@@ -38,15 +38,12 @@ function checkQuestion(callback, callback2){
 }
 
 
-QUnit.test( "add quest", function( assert ) {
-	assert.ok( testAddQ(), "Passed!" );
-	});
 
 function testAddQ(){
     var isTrue = "Testspm" === spmArray[0];
     
         console.assert(isTrue);
-        return isTrue;
+
     if (isTrue){
          console.log("Ask question-test worked");
          
