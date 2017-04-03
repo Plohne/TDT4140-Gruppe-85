@@ -5,7 +5,7 @@ var greenButton = document.getElementById("green");
 var newClick;
 var unClick;
 
-// Listeners to register if buttons are clicked in 'Students.html'.
+//Listeners to register if buttons are clicked in 'Students.html'.
 $(document).ready(function() {
 
 	redButton.onclick = function() {
@@ -24,18 +24,18 @@ $(document).ready(function() {
 
 
 
-// Function that registers the button pressed in the Firebase database.
+//Function that registers the button pressed in the Firebase database.
 function writeButtonData(input){	
 
-	
+
 	// Updates number of button clicks to the relevant button counter.
 	newClick = 0;
 	console.log("newClick 1: %d", newClick);
 	var buttonRef = database.ref().child('buttonCounter').child(input);
 	buttonRef.once('value', function(snapshot) {
-		  newClick = snapshot.val();
-		  console.log("newClick 2: %d", newClick);
-		  	  
+		newClick = snapshot.val();
+		console.log("newClick 2: %d", newClick);
+
 	}).then(function(){ // needed to ensure that the value is aquired from firebase before moving on.
 		newClick += 1;
 		console.log("newClick 3: %d", newClick);
@@ -49,7 +49,7 @@ function writeButtonData(input){
 	});
 }
 
-// Removes registration for a button in the Firebase database if a new button is pressed.
+//Removes registration for a button in the Firebase database if a new button is pressed.
 function removeButtonData(input){	
 
 	// Updates number of button clicks to the relevant button counter.
@@ -57,7 +57,7 @@ function removeButtonData(input){
 	var buttonRef = database.ref().child('buttonCounter').child(input);
 	buttonRef.once('value', function(snapshot) {
 		unClick = snapshot.val();	 
-		
+
 	}).then(function(){// needed to ensure that the value is aquired from firebase before moving on.
 		if(unClick > 0){
 			unClick -= 1;
@@ -66,89 +66,90 @@ function removeButtonData(input){
 	});
 }
 
-// Function to disable the pressed button and re-enable previous pressed button again if another button is pressed.
+//Function to disable the pressed button and re-enable previous pressed button again if another button is pressed.
 function disableButton(buttonId) {
-	
+
 	if(redButton.disabled) {
 		removeButtonData('red');
 		redButton.disabled = false;
 	}
-	
+
 	if(yellowButton.disabled) {
 		removeButtonData('yellow');
 		yellowButton.disabled = false;
 	}
-	
+
 	if(greenButton.disabled) {
 		removeButtonData('green');
 		greenButton.disabled = false;
 	}
-	
+
 	var pressedButton = document.getElementById(buttonId);
 	pressedButton.disabled = true;
 }
 
 
-// Question submit part
+//Question submit part
 
 var MESSAGE_TEMPLATE =
-    '<div class ="bubble">' + 
-    '<p class = "tekst"></p></div>';
-    //'<span class = "datestamp"></span>';
+	'<div class ="bubble">' + 
+	'<p class = "tekst"></p></div>';
+//'<span class = "datestamp"></span>';
 
 
 function loadMessage(){
-    var spmRef = firebase.database().ref("spm");
-    spmRef.off();
-    var setMessage = function(data){
-        var val = data.val();
-        var key = data.getKey();
-        displayMessage(val.spmet, key);
-    }
-    var removeQuestion = function(data){
-        var key = data.getKey();
-        var element = document.getElementById(key);
-        element.parentNode.removeChild(element);
-    }
-    
-    console.log("legger til listener");
-    spmRef.on('child_added', setMessage);
-    spmRef.on('child_removed',removeQuestion);
-    
+	var spmRef = firebase.database().ref("spm");
+	spmRef.off();
+	var setMessage = function(data){
+		var val = data.val();
+		var key = data.getKey();
+		displayMessage(val.spmet, key);
+	}
+	var removeQuestion = function(data){
+		var key = data.getKey();
+		var element = document.getElementById(key);
+		element.parentNode.removeChild(element);
+	}
+
+	console.log("legger til listener");
+	spmRef.on('child_added', setMessage);
+	spmRef.on('child_removed',removeQuestion);
+
 }
 function displayMessage(spmet, key){
-    console.log("Viser spørsmålet");
-    var chat = document.getElementById("cont1");
-    var bubble = document.createElement("div");
-       
-    bubble.id = key;
-       
-    bubble.className = "bubble";
-    var tekst = document.createElement("p");
-    tekst.className = "tekst";
-    tekst.textContent = spmet;
-    bubble.appendChild(tekst);
-    
-    bubble.onclick = removeQ;
-    
-    //bytter enter som gir linjeskift til <br>
-    tekst.innerHTML = tekst.innerHTML.replace(/\n/g, '<br>');
-    chat.appendChild(bubble);
-    setTimeout(function(){
-        chat.classList.add('visible')
-    }, 1);
-    
-    chat.scrollTop = chat.scrollHeight;
-    console.log(bubble);
+	console.log("Viser spørsmålet");
+	var chat = document.getElementById("cont1");
+	var bubble = document.createElement("div");
+
+	bubble.id = key;
+
+	bubble.className = "bubble";
+	var tekst = document.createElement("p");
+	tekst.className = "tekst";
+	tekst.textContent = spmet;
+	bubble.appendChild(tekst);
+
+	bubble.onclick = removeQ;
+
+	//bytter enter som gir linjeskift til <br>
+	tekst.innerHTML = tekst.innerHTML.replace(/\n/g, '<br>');
+	chat.appendChild(bubble);
+	setTimeout(function(){
+		chat.classList.add('visible')
+	}, 1);
+
+	chat.scrollTop = chat.scrollHeight;
+	console.log(bubble);
 }
 
-function askQuestion() {
-    var aQ = firebase.database().ref("spm");
-    var newQ = aQ.push();
-    var spmStilt = document.getElementById("chat-input").value;
-    newQ.set({spmet:spmStilt});
-    document.getElementById("chat-input").value = "";
-    
-  }
+function askQuestion(question) {
+	var aQ = firebase.database().ref("spm");
+	var newQ = aQ.push();
+//	var spmStilt = document.getElementById("chat-input").value;
+	newQ.set({spmet:question});
+	document.getElementById("chat-input").value = "";
+
+
+}
 
 loadMessage();
