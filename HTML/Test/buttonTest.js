@@ -16,19 +16,37 @@ redButtonRef.once('value', function(snapshot) {
 
 
 QUnit.test( "Button add", function( assert ) {
-//	assert.expect(1);
 
 	var done = assert.async();
-//	var done2 = assert.async();
 
 	writeButtonData('red');
-	//assert.ok(true, "Test started");
+
 	setTimeout(function() {
 		redButtonRef.once('value', function(snapshot) {
 			testClickAfter = snapshot.val();
 
 		}).then(function(){
 			assert.ok( testClickAfter == (saveClick + 1), "Red button click added to firebase." );
+			console.log("testClickAfter = %d", testClickAfter);
+			redButtonRef.set(saveClick);
+			done();
+		}); 
+	}, 1500);
+});
+
+
+QUnit.test( "Button remove", function( assert ) {
+
+	var done = assert.async();
+
+	removeButtonData('red');
+
+	setTimeout(function() {
+		redButtonRef.once('value', function(snapshot) {
+			testClickAfter = snapshot.val();
+
+		}).then(function(){
+			assert.ok( testClickAfter == (saveClick - 1), "Red button click removed from firebase." );
 			console.log("testClickAfter = %d", testClickAfter);
 			redButtonRef.set(saveClick);
 			done();
@@ -55,16 +73,20 @@ QUnit.test( "Button add", function( assert ) {
 QUnit.test( "Disable button", function(assert) {
 	disableButton("red");
 	assert.ok( redButton.disabled, "Red disabled");
-	redButton.disabled = false;
+//	redButton.disabled = false;
 
 	disableButton("yellow");
 	assert.ok( yellowButton.disabled, "Yellow disabled");
-	yellowButton.disabled = false;
+//	yellowButton.disabled = false;
 
 	disableButton("green");
 	assert.ok( greenButton.disabled, "Green disabled");
-	yellowButton.disabled = false;
+//	yellowButton.disabled = false;
 
+	disableButton("red");
+	assert.ok( redButton.disabled, "Red disabled");
+	redButton.disabled = false;
+	
 });
 
 
@@ -83,3 +105,4 @@ QUnit.test("Pin generator test", function (assert){
 QUnit.test("Calc average", function ( assert ){
 	assert.equal(calcAverage(5,10), 50 , "Correct average");
 });
+

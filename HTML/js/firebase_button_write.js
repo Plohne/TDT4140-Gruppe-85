@@ -27,9 +27,6 @@ $(document).ready(function() {
 // Function that registers the button pressed in the Firebase database.
 function writeButtonData(input){	
 
-	// Writes the color of pushed button to 'Button_input'.
-	database.ref().update({Button_input: input
-    });
 	
 	// Updates number of button clicks to the relevant button counter.
 	newClick = 0;
@@ -55,12 +52,8 @@ function writeButtonData(input){
 // Removes registration for a button in the Firebase database if a new button is pressed.
 function removeButtonData(input){	
 
-	// Writes the color of pushed button to 'Button_input'.
-	database.ref().update({Button_input: input
-    });
-	
 	// Updates number of button clicks to the relevant button counter.
-//	un_click = 0;
+	//	un_click = 0;
 	var buttonRef = database.ref().child('buttonCounter').child(input);
 	buttonRef.once('value', function(snapshot) {
 		unClick = snapshot.val();	 
