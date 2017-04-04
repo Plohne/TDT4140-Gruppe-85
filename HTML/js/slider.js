@@ -17,9 +17,9 @@ database.ref().on("value", function(snapshot){
     var green_count = snapshot.val().buttonCounter.green;
     
     var sum_input = red_count + yellow_count + green_count;
-    var red_average = (red_count / sum_input)*100;
-    var yellow_average = (yellow_count / sum_input)*100;
-    var green_average = (green_count / sum_input)*100;
+    var red_average = calcAverage(red_count, sum_input);
+    var yellow_average = calcAverage(yellow_count, sum_input);
+    var green_average = calcAverage(green_count, sum_input);
     
     $( "#Not_following_slider" ).slider('value',red_average);
     $( "#Doing_fine_slider" ).slider('value',yellow_average);
@@ -30,3 +30,8 @@ database.ref().on("value", function(snapshot){
     $( "#Too_easy_amount" ).val(green_count);
 });
 
+function calcAverage(count, sum){
+	
+	return (count / sum)*100;
+
+}

@@ -52,11 +52,11 @@ function displayMessage(spmet, key){
     console.log(bubble);
 }
 
-function askQuestion() {
+function askQuestion(question) {
     var aQ = firebase.database().ref("spm");
     var newQ = aQ.push();
-    var spmStilt = document.getElementById("chat-input").value;
-    newQ.set({spmet:spmStilt});
+//    var spmStilt = document.getElementById("chat-input").value;
+    newQ.set({spmet:question});
     document.getElementById("chat-input").value = "";
     
  
