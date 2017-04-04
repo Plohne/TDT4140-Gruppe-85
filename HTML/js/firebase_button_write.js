@@ -94,7 +94,6 @@ function disableButton(buttonId) {
 var MESSAGE_TEMPLATE =
 	'<div class ="bubble">' + 
 	'<p class = "tekst"></p></div>';
-//'<span class = "datestamp"></span>';
 
 
 function loadMessage(){

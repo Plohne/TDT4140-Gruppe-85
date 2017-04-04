@@ -1,12 +1,10 @@
 /**
- * 
+ * Testing that a question is written to firebase
  */
 
 var questArray = [];
 var questArrayRemoved = [];
 var questionID;
-
-//Skriver spm til database
 
 var allQuest = [];
 var questRef = database.ref("spm").orderByKey();
@@ -15,18 +13,10 @@ var questRef = database.ref("spm").orderByKey();
 QUnit.test( "Question added", function( assert ) {
 
 	var done = assert.async();
-
-
-
-
 	var testQuestion = "Test Quest";
+	
 	console.log("testQuestion1 = %s", testQuestion);
 	console.log(allQuest);
-
-//	document.getElementById("chat-input").textContent = testQuestion;
-
-//	console.log("allQuest length = %d", allQuest.length);
-
 
 	questRef.once("value", function(questions){
 		questions.forEach(function(question){
@@ -35,10 +25,7 @@ QUnit.test( "Question added", function( assert ) {
 	}).then(function(){
 		askQuestion(testQuestion);
 		console.log("askQuestion");
-
 	});
-
-
 
 	setTimeout(function() {
 		questRef.once("value", function(questions){

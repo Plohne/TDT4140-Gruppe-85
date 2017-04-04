@@ -17,9 +17,11 @@ function pinEntry(){
 
 			if (pinEntered == pinInput.value){
 				window.location.assign("Students.html");
+				return 1;
 			}
 			else{
 				window.alert("Wrong pin");
+				return 0;
 			}
 		});
 }

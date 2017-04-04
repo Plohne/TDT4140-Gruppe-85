@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<title>QUnit Button Test</title>
+<title>QUnit Testing</title>
 <link rel="stylesheet" href="../jquery/jquery-ui.css">
 <style>
 #Not_following_slider, #Doing_fine_slider, #Too_easy_slider {
@@ -14,6 +14,8 @@
 <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet"
 	href="https://code.jquery.com/qunit/qunit-2.2.1.css">
+<script type="text/javascript" src="sinon-2.1.0.js"></script>
+<script type="text/javascript" src="sinon-qunit-0.8.0.js"></script>
 
 </head>
 <body>
@@ -88,6 +90,14 @@
 				</div>
 			</div>
 		</div>
+
+		<div id="buttonDiv">
+			<label><b>Password</b></label> <input type="text" id="passID2"
+				placeholder="Enter Password" name="psw" required>
+
+			<button type="submit" id="pinSubmit">Login</button>
+		</div>
+
 	</div>
 
 	<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
@@ -100,10 +110,13 @@
 	<script src="../js/slider.js" data-cover></script>
 	<script src="../js/firebase_question_read.js" data-cover></script>
 	<script src="../js/removeQLecturer.js" data-cover></script>
+	<script src="../js/login.js" data-cover></script>
 
 	<script src="buttonTest.js"></script>
-	
+
 	<script src="questTest.js"></script>
+	
+	<script src="loginTest.js"></script>
 
 
 </body>
