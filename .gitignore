@@ -16,5 +16,5 @@ Makefile.in
 /*.iml
 /bin/
 /.project
-/.DS_Store
-/fb_config.js
+/*.DS_Store
+/*fb_config.js
