@@ -1,4 +1,6 @@
-
+/**
+ * Registers button clicks and question submits from 'Students.html' and sends to firebase.
+ */
 var redButton = document.getElementById("red");
 var yellowButton = document.getElementById("yellow");
 var greenButton = document.getElementById("green");
@@ -22,11 +24,8 @@ $(document).ready(function() {
 	}
 });
 
-
-
 //Function that registers the button pressed in the Firebase database.
 function writeButtonData(input){	
-
 
 	// Updates number of button clicks to the relevant button counter.
 	newClick = 0;
@@ -36,7 +35,7 @@ function writeButtonData(input){
 		newClick = snapshot.val();
 		console.log("newClick 2: %d", newClick);
 
-	}).then(function(){ // needed to ensure that the value is aquired from firebase before moving on.
+	}).then(function(){ // needed to ensure that the value is acquired from firebase before moving on.
 		newClick += 1;
 		console.log("newClick 3: %d", newClick);
 		buttonRef.set(newClick, function(error){
@@ -53,7 +52,6 @@ function writeButtonData(input){
 function removeButtonData(input){	
 
 	// Updates number of button clicks to the relevant button counter.
-	//	un_click = 0;
 	var buttonRef = database.ref().child('buttonCounter').child(input);
 	buttonRef.once('value', function(snapshot) {
 		unClick = snapshot.val();	 
@@ -115,13 +113,14 @@ function loadMessage(){
 	spmRef.on('child_removed',removeQuestion);
 
 }
+
 function displayMessage(spmet, key){
 	console.log("Viser spørsmålet");
 	var chat = document.getElementById("cont1");
 	var bubble = document.createElement("div");
-
+	// Gives the div 'bubble' the unique key for the question parent so that it can be referenced and removed later.
 	bubble.id = key;
-
+	// Creates necessary HTML elements in order to properly add the question and save needed variables.
 	bubble.className = "bubble";
 	var tekst = document.createElement("p");
 	tekst.className = "tekst";
@@ -141,14 +140,13 @@ function displayMessage(spmet, key){
 	console.log(bubble);
 }
 
-// Function for adding questions to database, pushing spm into the database and provides the parent with a unique ID.
+//Function for adding questions to database, pushing spm into the database and provides the parent with a unique ID.
 function askQuestion(question) {
 	var aQ = firebase.database().ref("spm");
 	var newQ = aQ.push();
 //	var spmStilt = document.getElementById("chat-input").value;
 	newQ.set({spmet:question});
 	document.getElementById("chat-input").value = "";
-
 
 }
 

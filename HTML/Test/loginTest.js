@@ -1,5 +1,5 @@
 /**
- * 
+ * Testing of log in functionality.
  */
 
 QUnit.begin(function() {
@@ -15,10 +15,28 @@ QUnit.testDone(function() {
 });
 
 
+QUnit.test("Pin generator test", function (assert){
+
+	pinTopLimit = 9999;
+	pinBottomLimit = 0;
+
+	var pin1 = generatePin ();
+	var pin2 = generatePin ();
+	
+	assert.ok( pin1 < pinTopLimit , "Pin within top limit");
+	assert.ok( pin1 > pinBottomLimit , "Pin within bottom limit");
+
+	assert.notEqual(pin1, pin2, "Not giving same number");
+
+});
+
 QUnit.test("Login test", function( assert ) {
 	var done = assert.async();
 
-	pinEntry();
+
+	 $("#pinSubmit").trigger("click");
+	
+	//pinEntry();
 
 	setTimeout(function() {
 		// add an assertion to make sure alert was called

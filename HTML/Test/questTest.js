@@ -1,5 +1,5 @@
 /**
- * Testing that a question is written to firebase
+ * Testing that a question is written to firebase.
  */
 
 var questArray = [];

@@ -1,4 +1,6 @@
-
+/**
+ * Log in controller that controlls entered pin against pin in firebase.
+ */
 var pinSubmit = document.getElementById("pinSubmit");
 // Venter på pin input
 $(document).ready(function() {

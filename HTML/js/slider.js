@@ -1,3 +1,6 @@
+/**
+ * Slider controller that sets the slider value acquired from firebase.
+ */
 
 // Setting up three sliders ranging from 0 to 100. 
 $( "#Not_following_slider, #Doing_fine_slider, #Too_easy_slider").slider({
