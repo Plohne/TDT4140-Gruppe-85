@@ -1,7 +1,7 @@
 # TDT4140-Gruppe-85
-Software development.
+Software Engineering.
 This is a project for group 85.
-How to use it:
+# How to use it:
 
 As a Professor:
 You start at the index page and choose the "Log in as lecturer".
