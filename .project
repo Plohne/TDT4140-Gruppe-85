@@ -14,15 +14,5 @@
 			<type>1</type>
 			<location>/home/torefa/Downloads/blanket.min.js</location>
 		</link>
-		<link>
-			<name>HTML/Test/sinon-2.1.0.js</name>
-			<type>1</type>
-			<location>/home/torefa/Downloads/sinon-2.1.0.js</location>
-		</link>
-		<link>
-			<name>HTML/Test/sinon-qunit-0.8.0.js</name>
-			<type>1</type>
-			<location>/home/torefa/Downloads/sinon-qunit-0.8.0.js</location>
-		</link>
 	</linkedResources>
 </projectDescription>
