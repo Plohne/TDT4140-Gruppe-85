@@ -130,7 +130,7 @@ function displayMessage(spmet, key){
 
 	bubble.onclick = removeQ;
 
-	//bytter enter som gir linjeskift til <br>
+	//switch enter that gives linebreak for <br>
 	tekst.innerHTML = tekst.innerHTML.replace(/\n/g, '<br>');
 	chat.appendChild(bubble);
 	setTimeout(function(){
@@ -141,6 +141,7 @@ function displayMessage(spmet, key){
 	console.log(bubble);
 }
 
+// Function for adding questions to database, pushing spm into the database and provides the parent with a unique ID.
 function askQuestion(question) {
 	var aQ = firebase.database().ref("spm");
 	var newQ = aQ.push();

@@ -1,12 +1,12 @@
 
 var pinSubmit = document.getElementById("pinSubmit");
-
+// Venter på pin input
 $(document).ready(function() {
 	pinSubmit.onclick = function(){
 		pinEntry();
 	}
 });
-
+// Function for matching the input pin to the pin stored in the database.
 function pinEntry(){
 	var pinEntered;
 	database.ref().once("value", function(snapshot){

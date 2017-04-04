@@ -29,19 +29,19 @@ function displayMessage(spmet, key){
     console.log("Viser spørsmålet");
     var chat = document.getElementById("cont1");
     var bubble = document.createElement("div");
-       
+    // Gives the div 'bubble' the unique key for the question parent so that it can be referenced and removed later.
     bubble.id = key;
-   
+   // Creates necessary HTML elements in order to properly add the question and save needed variables.
         bubble.className = "bubble";
     var tekst = document.createElement("p");
     tekst.className = "tekst";
     tekst.textContent = spmet;
     bubble.appendChild(tekst);
 
-    
+    // Here it is running the script that removes the question when you click on it.
     bubble.onclick = removeQ;
- 
-    //bytter enter som gir linjeskift til <br>
+  
+    // Switching enter that gives linebreak to <br>
     tekst.innerHTML = tekst.innerHTML.replace(/\n/g, '<br>');
     chat.appendChild(bubble);
     setTimeout(function(){
@@ -51,7 +51,7 @@ function displayMessage(spmet, key){
     chat.scrollTop = chat.scrollHeight;
     console.log(bubble);
 }
-
+// Function for adding new questions to database and providing the parent with an unique id.
 function askQuestion(question) {
     var aQ = firebase.database().ref("spm");
     var newQ = aQ.push();

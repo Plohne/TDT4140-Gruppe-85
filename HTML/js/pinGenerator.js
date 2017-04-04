@@ -1,4 +1,4 @@
-
+// Generates a random pin and puts it into the database under the name 'pin'.
 function lecturerGenerate(){
 
 database.ref().update({pin: generatePin()

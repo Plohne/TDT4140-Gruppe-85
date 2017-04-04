@@ -1,4 +1,4 @@
 function removeQ(e) {
 }
 
-// Må være en her for Student og for å ikke skape komplikasjoner
+// Empty function for Student to avoid conflict with lecturer and question removal.
