@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>QUnit Testing</title>
+<link rel="stylesheet" href="../jquery/jquery-ui.css">
+<style>
+#Not_following_slider, #Doing_fine_slider, #Too_easy_slider {
+	margin: 15px;
+}
+</style>
+<script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet"
+	href="https://code.jquery.com/qunit/qunit-2.2.1.css">
+
+
+</head>
+<body>
+
+
+	<div id="qunit"></div>
+	<div id="qunit-fixture"></div>
+	<div style="display: none">
+		<div id="knapper">
+
+			<div id="knapp1">
+				<button id="red" class="btn red">Not following!</button>
+			</div>
+
+			<div id="knapp2">
+				<button id="yellow" class="btn yellow">Doing fine!</button>
+			</div>
+
+			<div id="knappss">
+				<button id="green" class="btn green">Too easy!</button>
+			</div>
+		</div>
+
+		<p>
+		<h2 id="pinDisplay">Pin:</h2>
+		</p>
+
+		<p>
+			<label for="Not_following_value"
+				style="color: white; font-weight: bold;">Not following:</label> <input
+				type="text" class="value_display" id="Not_following_amount" readonly>
+		</p>
+		<div id="Not_following_slider"></div>
+
+		<p>
+			<label for="Doing_fine_value"
+				style="color: white; font-weight: bold;">Doing fine:</label> <input
+				type="text" class="value_display" id="Doing_fine_amount" readonly>
+		</p>
+		<div id="Doing_fine_slider"></div>
+
+		<p>
+			<label for="Too_easy_value" style="color: white; font-weight: bold;">Too
+				easy:</label> <input type="text" class="value_display" id="Too_easy_amount"
+				readonly>
+		</p>
+		<div id="Too_easy_slider"></div>
+
+		<div id="spmBOX">
+			<div>
+				<div class="chat-box-lecturer">
+					<div id='chat' class="chat">
+						<div class="chat-container active" id='cont1'></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div id="spmBOX">
+			<div>
+				<div class="chat-box">
+					<div id='chat' class="chat">
+						<div class="chat-container active" id='cont1'></div>
+					</div>
+					<div class="chat-control">
+						<input class="chat-input" id="chat-input" type="text"
+							placeholder="Type question, then press enter"
+							onkeydown="if (event.keyCode == 13) askQuestion();" />
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="buttonDiv">
+			<label><b>Password</b></label> <input type="text" id="passID2"
+				placeholder="Enter Password" name="psw" required>
+
+			<button type="submit" id="pinSubmit">Login</button>
+		</div>
+
+	</div>
+
+	<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
+	<script src="../fb_config.js"></script>
+	<script src="https://code.jquery.com/qunit/qunit-2.2.1.js"></script>
+	<script src="blanket.min.js"></script>
+
+	<script src="../js/firebase_button_write.js" data-cover></script>
+	<script src="../js/pinGenerator.js" data-cover></script>
+	<script src="../js/slider.js" data-cover></script>
+	<script src="../js/firebase_question_read.js" data-cover></script>
+	<script src="../js/removeQLecturer.js" data-cover></script>
+	<script src="../js/login.js" data-cover></script>
+
+	<script src="buttonTest.js"></script>
+
+	<script src="questTest.js"></script>
+	
+	<script src="loginTest.js"></script>
+
+
+</body>
+</html>

@@ -37,16 +37,23 @@ function checkQuestion(callback, callback2){
     });
 }
 
+
+
 function testAddQ(){
     var isTrue = "Testspm" === spmArray[0];
+    
         console.assert(isTrue);
+
     if (isTrue){
          console.log("Ask question-test worked");
+         
     }
     removeQuestion();  
 
 
 }
+
+
 
 function askQuestion() {
     var aQ = firebase.database().ref("spm");
