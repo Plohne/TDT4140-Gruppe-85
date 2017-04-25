@@ -1,3 +1,7 @@
+/**
+* Testing adding and removal of question on Firebase.
+*/
+
 var spmArray = [];
 var spmArrayRemoved = [];
 var questionID;
